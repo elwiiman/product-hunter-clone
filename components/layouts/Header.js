@@ -15,8 +15,12 @@ const Header = () => {
         <div>
           <p>Hi Emmanuel </p>
           <button type="button  ">Close Session</button>
-          <Link href="/">Login</Link>
-          <Link href="/">Sign In</Link>
+          <Link href="/">
+            <a>Login</a>
+          </Link>
+          <Link href="/">
+            <a>Sign In</a>
+          </Link>
         </div>
       </div>
     </header>

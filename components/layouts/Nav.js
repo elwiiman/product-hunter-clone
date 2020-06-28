@@ -4,9 +4,15 @@ import Link from "next/link";
 const Nav = () => {
   return (
     <nav>
-      <Link href="/">Home</Link>
-      <Link href="/">Popular</Link>
-      <Link href="/">New Product</Link>
+      <Link href="/">
+        <a>Home</a>
+      </Link>
+      <Link href="/">
+        <a>Popular</a>
+      </Link>
+      <Link href="/">
+        <a>New Product</a>
+      </Link>
     </nav>
   );
 };
