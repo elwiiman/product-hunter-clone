@@ -23,10 +23,14 @@ const Logo = styled.p`
   font-weight: 700;
   font-family: "Roboto Slab", serif;
   margin-right: 2rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Header = () => {
-  const user = true;
+  const user = false;
   return (
     <header
       css={css`
@@ -69,10 +73,10 @@ const Header = () => {
             </Fragment>
           ) : (
             <Fragment>
-              <Link href="/">
+              <Link href="/login">
                 <Button bgColor="true">Login</Button>
               </Link>
-              <Link href="/">
+              <Link href="/create-account">
                 <Button>Sign In</Button>
               </Link>
             </Fragment>

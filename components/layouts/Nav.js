@@ -23,10 +23,10 @@ const Nav = () => {
       <Link href="/">
         <a>Home</a>
       </Link>
-      <Link href="/">
+      <Link href="/popular">
         <a>Popular</a>
       </Link>
-      <Link href="/">
+      <Link href="/new-product">
         <a>New Product</a>
       </Link>
     </NavStyled>
