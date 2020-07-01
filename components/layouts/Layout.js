@@ -78,7 +78,6 @@ const Layout = (props) => {
       </Head>
       <Header />
       <main>{props.children}</main>
-      <h1>Another Header</h1>
     </Fragment>
   );
 };
