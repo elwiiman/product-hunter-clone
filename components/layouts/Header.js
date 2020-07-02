@@ -1,10 +1,12 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/core";
 import Search from "../ui/Search";
 import Nav from "./Nav";
 import Link from "next/link";
 import Button from "../ui/Button";
+import FirebaseContext from "../../firebase/context";
+import Router from "next/router";
 
 const HeaderContainer = styled.div`
   max-width: 1200px;
@@ -30,7 +32,7 @@ const Logo = styled.p`
 `;
 
 const Header = () => {
-  const user = false;
+  const { user, firebase } = useContext(FirebaseContext);
   return (
     <header
       css={css`
@@ -65,9 +67,16 @@ const Header = () => {
                   margin-right: 2rem;
                 `}
               >
-                Hi Emmanuel{" "}
+                {user.displayName}
               </p>
-              <Button bgColor="true" type="button  ">
+              <Button
+                bgColor="true"
+                type="button"
+                onClick={() => {
+                  firebase.signout();
+                  Router.push("/login");
+                }}
+              >
                 Close Session
               </Button>
             </Fragment>

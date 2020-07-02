@@ -1,8 +1,11 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { css } from "@emotion/core";
+import Router from "next/router";
 import styled from "@emotion/styled";
 import Layout from "../components/layouts/Layout";
 import { Form, Field, InputSubmit, Error } from "../components/ui/Form";
+
+import firebase from "../firebase";
 
 //validations
 import useValidate from "../hooks/useValidate";
@@ -15,6 +18,7 @@ const initialState = {
 };
 
 const CreateAccount = () => {
+  const [error, setError] = useState(false);
   const { inputValues, errors, handleSubmit, handleChange } = useValidate(
     initialState,
     validateCreateAccount,
@@ -23,8 +27,14 @@ const CreateAccount = () => {
 
   const { name, email, password } = inputValues;
 
-  function createAccount() {
-    console.log("create account");
+  async function createAccount() {
+    try {
+      await firebase.register(name, email, password);
+      Router.push("/");
+    } catch (error) {
+      console.log("there was an error", error.message);
+      setError(error.message);
+    }
   }
 
   return (
@@ -78,6 +88,7 @@ const CreateAccount = () => {
               />
             </Field>
             {errors.password && <Error>{errors.password}</Error>}
+            {error && <Error>{error}</Error>}
             <InputSubmit type="submit" value="Create Account" />
           </Form>
         </Fragment>
