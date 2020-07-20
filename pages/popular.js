@@ -1,35 +1,11 @@
-import React, { useEffect, useState, useContext } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import Layout from "../components/layouts/Layout";
 import DetailProduct from "../components/layouts/DetailProduct";
-import { FirebaseContext } from "../firebase";
+import useProducts from "../hooks/useProducts";
 
 const Popular = () => {
-  const [products, setProducts] = useState([]);
-  const { firebase } = useContext(FirebaseContext);
-
-  useEffect(() => {
-    // const handleSnapshot = (snapshot) => {
-    //   const products = snapshot.docs.map((doc) => {
-    //     return { id: doc.id, ...doc.data() };
-    //   });
-    //   console.log(products);
-    // };
-    const obtainProducts = () => {
-      firebase.db
-        .collection("products")
-        .orderBy("votes", "desc")
-        .onSnapshot(handleSnapshot);
-    };
-    obtainProducts();
-  }, []);
-
-  function handleSnapshot(snapshot) {
-    const products = snapshot.docs.map((doc) => {
-      return { id: doc.id, ...doc.data() };
-    });
-    setProducts(products);
-  }
+  const { products } = useProducts("votes");
   return (
     <div>
       <Layout>
