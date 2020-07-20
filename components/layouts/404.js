@@ -1,6 +1,6 @@
 import React from "react";
 import { css } from "@emotion/core";
-const Error404 = () => {
+const Error404 = ({ error }) => {
   return (
     <h1
       css={css`
@@ -8,7 +8,7 @@ const Error404 = () => {
         text-align: center;
       `}
     >
-      Product doesn't exist
+      {error}
     </h1>
   );
 };
