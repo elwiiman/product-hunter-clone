@@ -47,14 +47,15 @@ const Product = () => {
   useEffect(() => {
     const obtainProduct = async () => {
       const productQuery = await firebase.db.collection("products").doc(id);
-      const thisProduct = await productQuery.get();
-      if (thisProduct.exists) {
-        setProduct(thisProduct.data());
-        setConsultDB(false);
-      } else {
-        setError(true);
-        setConsultDB(false);
-      }
+      await productQuery.onSnapshot((doc) => {
+        if (doc.exists) {
+          setProduct(doc.data());
+          setConsultDB(false);
+        } else {
+          setError(true);
+          setConsultDB(false);
+        }
+      });
     };
 
     if (id && consultDB) {
@@ -62,6 +63,14 @@ const Product = () => {
       obtainProduct();
     }
   }, [id, consultDB]);
+
+  function handleSnapshot(snapshot) {
+    // const product = snapshot.docs.map((doc) => {
+    //   return { id: doc.id, ...doc.data() };
+    // });
+    console.log(snapshot.docs);
+    // setProducts(products);
+  }
 
   useEffect(() => {
     if (user) {
