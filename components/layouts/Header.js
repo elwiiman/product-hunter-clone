@@ -5,7 +5,7 @@ import Search from "../ui/Search";
 import Nav from "./Nav";
 import Link from "next/link";
 import Button from "../ui/Button";
-import FirebaseContext from "../../firebase/context";
+import { FirebaseContext } from "../../firebaseModule";
 import Router from "next/router";
 
 const HeaderContainer = styled.div`

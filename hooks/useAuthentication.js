@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import firebase from "../firebase";
+import firebase from "../firebaseModule";
 
 function useAuthentication() {
   const [userAuth, setUserAuth] = useState(null);

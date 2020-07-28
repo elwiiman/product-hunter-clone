@@ -7,7 +7,7 @@ import { Form, Field, InputSubmit, Error } from "../components/ui/Form";
 import FileUploader from "react-firebase-file-uploader";
 import Error404 from "../components/layouts/404";
 
-import { FirebaseContext } from "../firebase";
+import { FirebaseContext } from "../firebaseModule";
 
 //validations
 import useValidate from "../hooks/useValidate";

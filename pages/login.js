@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 import Layout from "../components/layouts/Layout";
 import { Form, Field, InputSubmit, Error } from "../components/ui/Form";
 
-import firebase from "../firebase";
+import firebase from "../firebaseModule";
 
 //validations
 import useValidate from "../hooks/useValidate";

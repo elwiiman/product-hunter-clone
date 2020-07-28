@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState, Fragment } from "react";
 import { useRouter } from "next/router";
-import { FirebaseContext } from "../../firebase";
+import { FirebaseContext } from "../../firebaseModule";
 import Layout from "../../components/layouts/Layout";
 import Error404 from "../../components/layouts/404";
 import Spinner from "../../components/layouts/Spinner";
